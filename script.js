@@ -1,3 +1,6 @@
+var btn = document.getElementById('copyc');
+    var clipboard = new Clipboard(btn);
+
 $("#submitbtn").click(function () {
 	$('#list').empty();
 	//split the list of names based on line breaks
@@ -16,5 +19,19 @@ $("#submitbtn").click(function () {
 		list += "<li>" + goodName + "</li>";
 
 	}
+	$('#inputArea').slideUp();
 	$('#list').append(list);
+	$('#newList, #showInput, #copyc').fadeIn();
 });
+
+$('#showInput').click(function() {
+		$('#inputArea').slideDown();
+	});
+
+
+$('#newList').click(function() {
+		$('#list').empty();
+		$('#txtMessage').val('');
+		$('#inputArea').slideDown();
+		$('#newList, #showInput, #copyc').fadeOut();
+	});
